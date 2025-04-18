@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <title>Solar System Simulation</title>
+</head>
+<body>
+
+    <a-scene renderer="antialias: false; precision: medium; powerPreference: high-performance">
+
+        <!-- sky background -->
+        <a-sky color="black"></a-sky>
+
+        <!-- camera -->
+        <a-entity camera position="0 3 15" look-controls wasd-controls="acceleration:120" fov="70"></a-entity>
+
+        <!-- sun -->
+        <a-sphere position="0 0 -5" radius="4.5" color="#FFCC00"></a-sphere>
+
+        <!-- earth -->
+        <!-- <a-sphere position="20 0 -5" radius="1" color="#00CCFF"></a-sphere> -->
+
+        <!-- earth revolution around sun -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 55000; easing: linear;">
+            <!-- earth -->
+            <a-entity position="22 0 -5">
+                <a-sphere radius="1" color="#00CCFF"></a-sphere>
+
+                <!-- moon-->
+                 <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear;">
+                    <a-entity position="2.5 0 0">
+                        <a-sphere radius="0.3" color="#808080"></a-sphere>
+                    </a-entity>
+                </a-entity>
+            </a-entity>         
+        </a-entity>         
+
+    </a-scene>
+    
+</body>
+</html>
